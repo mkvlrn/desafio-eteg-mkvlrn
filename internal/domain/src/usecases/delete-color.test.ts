@@ -26,7 +26,7 @@ it("deletes color", async () => {
 });
 
 it("returns error if color is not registered", async () => {
-  vi.spyOn(mockColorRepository, "findById").mockResolvedValue(Result.ok(undefined));
+  vi.spyOn(mockColorRepository, "findById").mockResolvedValue(Result.ok(null));
 
   const result = await usecase.execute(validColor.id);
 

@@ -1,3 +1,5 @@
+/** biome-ignore-all lint/style/noProcessEnv: fine for test files */
+
 import { execSync } from "node:child_process";
 import { PostgreSqlContainer, type StartedPostgreSqlContainer } from "@testcontainers/postgresql";
 import { afterAll, assert, beforeAll, describe, expect, it } from "vitest";
@@ -8,7 +10,7 @@ describe("prisma color repository", () => {
   let db: StartedPostgreSqlContainer;
   let prisma: PrismaClient;
   let repo: PrismaColorRepository;
-  let redId: string;
+  let deleteId: string;
 
   beforeAll(async () => {
     db = await new PostgreSqlContainer("postgres:latest").start();
@@ -16,6 +18,7 @@ describe("prisma color repository", () => {
       datasourceUrl: db.getConnectionUri(),
     });
     execSync("prisma migrate deploy", {
+      // biome-ignore lint/style/useNamingConvention: fine for test files
       env: { ...process.env, DATABASE_URL: db.getConnectionUri() },
     });
     repo = new PrismaColorRepository(prisma);
@@ -39,7 +42,7 @@ describe("prisma color repository", () => {
       }),
     );
 
-    redId = result.value.id;
+    deleteId = result.value.id;
   });
 
   it("creates a second color", { timeout: 60000 }, async () => {
@@ -82,7 +85,7 @@ describe("prisma color repository", () => {
   });
 
   it("finds color by id", { timeout: 60000 }, async () => {
-    const result = await repo.findById(redId);
+    const result = await repo.findById(deleteId);
 
     assert.isNull(result.error);
     assert.isDefined(result.value);
@@ -112,7 +115,7 @@ describe("prisma color repository", () => {
   });
 
   it("deletes a color by id", { timeout: 60000 }, async () => {
-    const result = await repo.delete(redId);
+    const result = await repo.delete(deleteId);
 
     assert.isNull(result.error);
   });

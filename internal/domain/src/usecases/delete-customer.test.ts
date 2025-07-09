@@ -26,7 +26,7 @@ it("deletes customer", async () => {
 });
 
 it("returns error if customer is not registered", async () => {
-  vi.spyOn(mockCustomerRepository, "findById").mockResolvedValue(Result.ok(undefined));
+  vi.spyOn(mockCustomerRepository, "findById").mockResolvedValue(Result.ok(null));
 
   const result = await usecase.execute(validCustomer.id);
 

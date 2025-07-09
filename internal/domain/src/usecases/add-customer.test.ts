@@ -16,8 +16,8 @@ afterEach(() => {
 });
 
 it("creates a new customer", async () => {
-  vi.spyOn(mockCustomerRepository, "findByCpf").mockResolvedValue(Result.ok(undefined));
-  vi.spyOn(mockCustomerRepository, "findByEmail").mockResolvedValue(Result.ok(undefined));
+  vi.spyOn(mockCustomerRepository, "findByCpf").mockResolvedValue(Result.ok(null));
+  vi.spyOn(mockCustomerRepository, "findByEmail").mockResolvedValue(Result.ok(null));
   vi.spyOn(mockCustomerRepository, "create").mockResolvedValue(Result.ok(validCustomer));
 
   const result = await usecase.execute(validCreateCustomer);
@@ -42,7 +42,7 @@ describe("returns error if customer is not unique", () => {
   });
 
   it("email", async () => {
-    vi.spyOn(mockCustomerRepository, "findByCpf").mockResolvedValue(Result.ok(undefined));
+    vi.spyOn(mockCustomerRepository, "findByCpf").mockResolvedValue(Result.ok(null));
     vi.spyOn(mockCustomerRepository, "findByEmail").mockResolvedValue(Result.ok(validCustomer));
 
     const result = await usecase.execute(validCreateCustomer);
@@ -72,7 +72,7 @@ describe("returns error if repository throws", () => {
 
   it("when checking for unique email", async () => {
     const repoError = new AppError("REPOSITORY_ERROR", "database exploded");
-    vi.spyOn(mockCustomerRepository, "findByCpf").mockResolvedValue(Result.ok(undefined));
+    vi.spyOn(mockCustomerRepository, "findByCpf").mockResolvedValue(Result.ok(null));
     vi.spyOn(mockCustomerRepository, "findByEmail").mockResolvedValue(Result.error(repoError));
 
     const result = await usecase.execute(validCreateCustomer);
@@ -84,8 +84,8 @@ describe("returns error if repository throws", () => {
   });
 
   it("when persisting new customer", async () => {
-    vi.spyOn(mockCustomerRepository, "findByCpf").mockResolvedValue(Result.ok(undefined));
-    vi.spyOn(mockCustomerRepository, "findByEmail").mockResolvedValue(Result.ok(undefined));
+    vi.spyOn(mockCustomerRepository, "findByCpf").mockResolvedValue(Result.ok(null));
+    vi.spyOn(mockCustomerRepository, "findByEmail").mockResolvedValue(Result.ok(null));
     const repoError = new AppError("REPOSITORY_ERROR", "database exploded");
     vi.spyOn(mockCustomerRepository, "create").mockResolvedValue(Result.error(repoError));
 

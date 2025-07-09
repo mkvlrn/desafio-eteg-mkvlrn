@@ -1,3 +1,5 @@
+/** biome-ignore-all lint/style/noProcessEnv: fine for test files */
+
 import { execSync } from "node:child_process";
 import { PostgreSqlContainer, type StartedPostgreSqlContainer } from "@testcontainers/postgresql";
 import { afterAll, assert, beforeAll, describe, expect, it } from "vitest";
@@ -16,6 +18,7 @@ describe("prisma customer repository", () => {
       datasourceUrl: db.getConnectionUri(),
     });
     execSync("prisma migrate deploy", {
+      // biome-ignore lint/style/useNamingConvention: fine for test files
       env: { ...process.env, DATABASE_URL: db.getConnectionUri() },
     });
     repo = new PrismaCustomerRepository(prisma);

@@ -16,7 +16,7 @@ afterEach(() => {
 });
 
 it("creates a new color", async () => {
-  vi.spyOn(mockColorRepository, "findByName").mockResolvedValue(Result.ok(undefined));
+  vi.spyOn(mockColorRepository, "findByName").mockResolvedValue(Result.ok(null));
   vi.spyOn(mockColorRepository, "create").mockResolvedValue(Result.ok(validColor));
 
   const result = await usecase.execute(validCreateColor);
@@ -53,7 +53,7 @@ describe("returns error if repository throws", () => {
   });
 
   it("when persisting new color", async () => {
-    vi.spyOn(mockColorRepository, "findByName").mockResolvedValue(Result.ok(undefined));
+    vi.spyOn(mockColorRepository, "findByName").mockResolvedValue(Result.ok(null));
     const repoError = new AppError("REPOSITORY_ERROR", "database exploded");
     vi.spyOn(mockColorRepository, "create").mockResolvedValue(Result.error(repoError));
 
