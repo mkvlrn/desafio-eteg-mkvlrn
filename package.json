@@ -1,0 +1,23 @@
+{
+  "name": "desafio-eteg-mkvlrn",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "author": "Mike Valeriano <mkvlrn@proton.me>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mkvlrn/desafio-eteg-mkvlrn"
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "prepare": "husky"
+  },
+  "workspaces":["apps/*", "internal/*"],
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "husky": "^9.1.7"
+  }
+}
