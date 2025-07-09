@@ -14,4 +14,9 @@ export const colorSchema = z.strictObject({
     .regex(colorRegex, { error: "invalid hex format" })
     .optional(),
 });
-export type ColorSchema = z.infer<typeof colorSchema>;
+export type ColorDto = z.infer<typeof colorSchema>;
+
+export const createColorSchema = colorSchema.omit({
+  id: true,
+});
+export type CreateColorDto = z.infer<typeof createColorSchema>;
