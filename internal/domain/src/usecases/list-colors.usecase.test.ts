@@ -1,4 +1,4 @@
-import { afterAll, assert, beforeEach, it, vi } from "vitest";
+import { afterEach, assert, beforeEach, it, vi } from "vitest";
 import { validColor } from "#/__fixtures__/color.fixtures.ts";
 import { mockColorRepository } from "#/__fixtures__/repositories.fixtures.ts";
 import { ListColorsUseCase } from "#/usecases/list-colors.usecase.ts";
@@ -11,7 +11,7 @@ beforeEach(() => {
   usecase = new ListColorsUseCase(mockColorRepository);
 });
 
-afterAll(() => {
+afterEach(() => {
   vi.resetAllMocks();
 });
 
