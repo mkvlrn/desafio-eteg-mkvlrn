@@ -1,7 +1,7 @@
 import { afterEach, assert, beforeEach, it, vi } from "vitest";
 import { validCustomer } from "#/__fixtures__/customer.fixtures.ts";
 import { mockCustomerRepository } from "#/__fixtures__/repositories.fixtures.ts";
-import { ListCustomersUseCase } from "#/usecases/list-customers.usecase.ts";
+import { ListCustomersUseCase } from "#/usecases/list-customers.ts";
 import { AppError } from "#/utils/app-error.ts";
 import { Result } from "#/utils/result.ts";
 

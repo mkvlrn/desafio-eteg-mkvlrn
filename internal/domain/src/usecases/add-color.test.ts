@@ -1,7 +1,7 @@
 import { afterEach, assert, beforeEach, describe, it, vi } from "vitest";
 import { validColor, validCreateColor } from "#/__fixtures__/color.fixtures.ts";
 import { mockColorRepository } from "#/__fixtures__/repositories.fixtures.ts";
-import { AddColorUseCase } from "#/usecases/add-color.usecase.ts";
+import { AddColorUseCase } from "#/usecases/add-color.ts";
 import { AppError } from "#/utils/app-error.ts";
 import { Result } from "#/utils/result.ts";
 
