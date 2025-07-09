@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Color {
+  id   String  @id @default(cuid())
+  name String  @unique
+  hex  String?
+
+  @@map("colors")
+}
+
+model Customer {
+  id            String @id @default(cuid())
+  name          String
+  cpf           String @unique
+  email         String @unique
+  favoriteColor String
+
+  @@map("customers")
+}

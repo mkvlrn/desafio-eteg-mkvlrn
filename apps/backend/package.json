@@ -1,21 +1,10 @@
 {
-  "name": "template-node",
-  "description": "A template for esm Node.js projects using typescript",
+  "name": "backend",
   "version": "1.0.0",
   "license": "MIT",
   "private": true,
   "type": "module",
   "author": "Mike Valeriano <mkvlrn@proton.me>",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:mkvlrn/template-node"
-  },
-  "keywords": [
-    "node",
-    "typescript",
-    "esm",
-    "template"
-  ],
   "engines": {
     "node": "24.x"
   },
@@ -26,11 +15,13 @@
     "test": "vitest",
     "biome-check": "biome check --no-errors-on-unmatched",
     "biome-fix": "npm run biome-check --write",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "migrate": "prisma migrate dev"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.1.1",
     "@types/node": "^24.0.12",
+    "prisma": "^6.11.1",
     "rollup-plugin-node-externals": "^8.0.1",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",
@@ -38,5 +29,9 @@
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.2.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@hono/node-server": "^1.15.0",
+    "@prisma/client": "^6.11.1",
+    "hono": "^4.8.4"
+  }
 }
