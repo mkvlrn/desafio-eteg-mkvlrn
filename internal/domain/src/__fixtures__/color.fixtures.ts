@@ -1,4 +1,4 @@
-import type { ColorDto, CreateColorDto } from "#/models/color.ts";
+import type { ColorDto, CreateColorDto } from "../models/color.ts";
 
 export const validColor: ColorDto = {
   id: "fkenb7xc1p4uipbrcerlh2bq",

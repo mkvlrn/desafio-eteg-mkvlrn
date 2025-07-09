@@ -1,6 +1,6 @@
-import type { ColorRepository } from "#/repositories/color.repository.ts";
-import { AppError } from "#/utils/app-error.ts";
-import { Result } from "#/utils/result.ts";
+import type { ColorRepository } from "../repositories/color.repository.ts";
+import { AppError } from "../utils/app-error.ts";
+import { Result } from "../utils/result.ts";
 
 export class DeleteColorUseCase {
   private readonly repository: ColorRepository;

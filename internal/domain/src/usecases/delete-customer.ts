@@ -1,6 +1,6 @@
-import type { CustomerRepository } from "#/repositories/customer.repository.ts";
-import { AppError } from "#/utils/app-error.ts";
-import { Result } from "#/utils/result.ts";
+import type { CustomerRepository } from "../repositories/customer.repository.ts";
+import { AppError } from "../utils/app-error.ts";
+import { Result } from "../utils/result.ts";
 
 export class DeleteCustomerUseCase {
   private readonly repository: CustomerRepository;

@@ -1,6 +1,6 @@
 import { assert, it } from "vitest";
-import { AppError } from "#/utils/app-error.ts";
-import { Result } from "#/utils/result.ts";
+import { AppError } from "./app-error.ts";
+import { Result } from "./result.ts";
 
 it("creates a successful result", () => {
   const result = Result.ok(123);

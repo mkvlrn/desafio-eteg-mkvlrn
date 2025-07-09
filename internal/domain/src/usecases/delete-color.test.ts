@@ -1,9 +1,9 @@
 import { afterEach, assert, beforeEach, describe, it, vi } from "vitest";
-import { validColor } from "#/__fixtures__/color.fixtures.ts";
-import { mockColorRepository } from "#/__fixtures__/repositories.fixtures.ts";
-import { DeleteColorUseCase } from "#/usecases/delete-color.ts";
-import { AppError } from "#/utils/app-error.ts";
-import { Result } from "#/utils/result.ts";
+import { validColor } from "../__fixtures__/color.fixtures.ts";
+import { mockColorRepository } from "../__fixtures__/repositories.fixtures.ts";
+import { DeleteColorUseCase } from "../usecases/delete-color.ts";
+import { AppError } from "../utils/app-error.ts";
+import { Result } from "../utils/result.ts";
 
 let usecase: DeleteColorUseCase;
 

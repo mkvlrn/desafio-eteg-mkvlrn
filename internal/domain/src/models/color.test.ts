@@ -6,8 +6,8 @@ import {
   validColorWithoutHex,
   validCreateColor,
   validCreateColorWithoutHex,
-} from "#/__fixtures__/color.fixtures.ts";
-import { colorSchema, createColorSchema } from "#/models/color.ts";
+} from "../__fixtures__/color.fixtures.ts";
+import { colorSchema, createColorSchema } from "./color.ts";
 
 describe("color model", () => {
   it("validates a valid color", () => {

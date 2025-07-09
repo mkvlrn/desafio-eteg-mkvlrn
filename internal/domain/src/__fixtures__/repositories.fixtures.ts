@@ -1,6 +1,6 @@
 import { vi } from "vitest";
-import type { ColorRepository } from "#/repositories/color.repository.ts";
-import type { CustomerRepository } from "#/repositories/customer.repository.ts";
+import type { ColorRepository } from "../repositories/color.repository.ts";
+import type { CustomerRepository } from "../repositories/customer.repository.ts";
 
 export const mockColorRepository: ColorRepository = {
   create: vi.fn(),

@@ -1,5 +1,5 @@
-import type { CreateCustomerDto, CustomerDto } from "#/models/customer.ts";
-import type { Result } from "#/utils/result.ts";
+import type { CreateCustomerDto, CustomerDto } from "../models/customer.ts";
+import type { Result } from "../utils/result.ts";
 
 export interface CustomerRepository {
   create(input: CreateCustomerDto): Promise<Result<CustomerDto>>;

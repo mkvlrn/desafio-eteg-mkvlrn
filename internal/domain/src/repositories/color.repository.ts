@@ -1,5 +1,5 @@
-import type { ColorDto, CreateColorDto } from "#/models/color.ts";
-import type { Result } from "#/utils/result.ts";
+import type { ColorDto, CreateColorDto } from "../models/color.ts";
+import type { Result } from "../utils/result.ts";
 
 export interface ColorRepository {
   create(input: CreateColorDto): Promise<Result<ColorDto>>;

@@ -4,8 +4,8 @@ import {
   invalidCustomer,
   validCreateCustomer,
   validCustomer,
-} from "#/__fixtures__/customer.fixtures.ts";
-import { createCustomerSchema, customerSchema } from "#/models/customer.ts";
+} from "../__fixtures__/customer.fixtures.ts";
+import { createCustomerSchema, customerSchema } from "./customer.ts";
 
 describe("customer model", () => {
   it("validates a valid customer", () => {

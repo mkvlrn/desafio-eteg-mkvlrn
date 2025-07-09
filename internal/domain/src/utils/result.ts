@@ -1,4 +1,4 @@
-import type { AppError } from "#/utils/app-error.ts";
+import type { AppError } from "./app-error.ts";
 
 /**
  * Result type to represent the outcome of an operation.

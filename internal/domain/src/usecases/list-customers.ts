@@ -1,6 +1,6 @@
-import type { CustomerDto } from "#/models/customer.ts";
-import type { CustomerRepository } from "#/repositories/customer.repository.ts";
-import { Result } from "#/utils/result.ts";
+import type { CustomerDto } from "../models/customer.ts";
+import type { CustomerRepository } from "../repositories/customer.repository.ts";
+import { Result } from "../utils/result.ts";
 
 export class ListCustomersUseCase {
   private readonly repository: CustomerRepository;

@@ -1,9 +1,9 @@
 import { afterEach, assert, beforeEach, describe, it, vi } from "vitest";
-import { validCustomer } from "#/__fixtures__/customer.fixtures.ts";
-import { mockCustomerRepository } from "#/__fixtures__/repositories.fixtures.ts";
-import { DeleteCustomerUseCase } from "#/usecases/delete-customer.ts";
-import { AppError } from "#/utils/app-error.ts";
-import { Result } from "#/utils/result.ts";
+import { validCustomer } from "../__fixtures__/customer.fixtures.ts";
+import { mockCustomerRepository } from "../__fixtures__/repositories.fixtures.ts";
+import { DeleteCustomerUseCase } from "../usecases/delete-customer.ts";
+import { AppError } from "../utils/app-error.ts";
+import { Result } from "../utils/result.ts";
 
 let usecase: DeleteCustomerUseCase;
 

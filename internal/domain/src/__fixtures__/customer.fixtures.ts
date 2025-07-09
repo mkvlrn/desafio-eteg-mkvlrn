@@ -1,4 +1,4 @@
-import type { CreateCustomerDto, CustomerDto } from "#/models/customer.ts";
+import type { CreateCustomerDto, CustomerDto } from "../models/customer.ts";
 
 export const validCustomer: CustomerDto = {
   id: "x1s6w76ikz97ayizxwnwktx9",
