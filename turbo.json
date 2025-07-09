@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/turbo/schema.json",
+  "dangerouslyDisablePackageManagerCheck": true,
+  "ui": "tui",
+  "tasks": {
+    "dev": {
+      "cache": false
+    },
+    "test": {
+      "cache": false
+    },
+    "biome-check": {
+      "cache": false
+    },
+    "biome-fix": {
+      "cache": false
+    },
+    "build": {
+      "cache": true,
+      "outputs": ["build"],
+      "dependsOn": ["^build"]
+    },
+    "dockerize": {
+      "cache": false,
+      "dependsOn": ["build", "^dockerize"]
+    }
+  }
+}
