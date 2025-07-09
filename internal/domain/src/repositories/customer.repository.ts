@@ -6,5 +6,6 @@ export interface CustomerRepository {
   findAll(): Promise<Result<CustomerDto[]>>;
   findById(id: string): Promise<Result<CustomerDto | undefined>>;
   findByEmail(email: string): Promise<Result<CustomerDto | undefined>>;
+  findByCpf(cpf: string): Promise<Result<CustomerDto | undefined>>;
   delete(id: string): Promise<Result<void>>;
 }

@@ -15,5 +15,6 @@ export const mockCustomerRepository: CustomerRepository = {
   findAll: vi.fn(),
   findById: vi.fn(),
   findByEmail: vi.fn(),
+  findByCpf: vi.fn(),
   delete: vi.fn(),
 };
