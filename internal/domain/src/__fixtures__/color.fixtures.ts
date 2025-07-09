@@ -9,6 +9,7 @@ export const validColor: ColorDto = {
 export const validColorWithoutHex: ColorDto = {
   id: "xps9lijjnhtusv34s17d3ewy",
   name: "green",
+  hex: null,
 };
 
 export const invalidColor: Record<string, { color: object; error: string }> = {
@@ -60,6 +61,7 @@ export const validCreateColor: CreateColorDto = {
 
 export const validCreateColorWithoutHex: CreateColorDto = {
   name: "green",
+  hex: null,
 };
 
 export const invalidCreateColor: Record<string, { createColor: object; error: string }> = {
