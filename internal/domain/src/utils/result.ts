@@ -1,18 +1,20 @@
+import type { AppError } from "#/utils/app-error.ts";
+
 /**
  * Result type to represent the outcome of an operation.
  * It can either be a success with a value or an error with an error message.
- * This is a generic type that can be used with any type of value and error.
+ * This is a generic type that can be used with any type of value.
  *
  * It is also an alias object containing the ok and error functions to
  * make it easier to create Result objects.
  */
-export type Result<T, E = Error> =
+export type Result<T, AppError> =
   | { readonly error: undefined; readonly value: T }
-  | { readonly error: E };
+  | { readonly error: AppError };
 
 export const Result: {
   ok<T>(value: T): Result<T, never>;
-  error<E = Error>(error: E): Result<never, E>;
+  error(error: AppError): Result<never, AppError>;
 } = {
   /**
    * Creates a successful Result with the given value.
@@ -25,5 +27,5 @@ export const Result: {
    * @param error The error value
    * @returns A Result object representing error
    */
-  error: <E = Error>(error: E): Result<never, E> => ({ error }),
+  error: (error: AppError): Result<never, AppError> => ({ error }),
 };

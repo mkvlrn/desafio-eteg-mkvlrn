@@ -1,4 +1,5 @@
 import { assert, it } from "vitest";
+import { AppError } from "#/utils/app-error.ts";
 import { Result } from "#/utils/result.ts";
 
 it("creates a successful result", () => {
@@ -9,8 +10,10 @@ it("creates a successful result", () => {
 });
 
 it("creates an error result", () => {
-  const result = Result.error(new Error("fail"));
+  const result = Result.error(new AppError("GENERIC_ERROR", "something broke"));
 
   assert.isDefined(result.error);
-  assert.strictEqual(result.error.message, "fail");
+  assert.instanceOf(result.error, AppError);
+  assert.strictEqual(result.error.name, "GENERIC_ERROR");
+  assert.strictEqual(result.error.message, "something broke");
 });
