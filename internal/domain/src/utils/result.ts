@@ -8,13 +8,13 @@ import type { AppError } from "#/utils/app-error.ts";
  * It is also an alias object containing the ok and error functions to
  * make it easier to create Result objects.
  */
-export type Result<T, AppError> =
+export type Result<T, E = AppError> =
   | { readonly error: undefined; readonly value: T }
-  | { readonly error: AppError };
+  | { readonly error: E };
 
 export const Result: {
   ok<T>(value: T): Result<T, never>;
-  error(error: AppError): Result<never, AppError>;
+  error<E = AppError>(error: E): Result<never, E>;
 } = {
   /**
    * Creates a successful Result with the given value.
@@ -27,5 +27,5 @@ export const Result: {
    * @param error The error value
    * @returns A Result object representing error
    */
-  error: (error: AppError): Result<never, AppError> => ({ error }),
+  error: <E = AppError>(error: E): Result<never, E> => ({ error }),
 };
