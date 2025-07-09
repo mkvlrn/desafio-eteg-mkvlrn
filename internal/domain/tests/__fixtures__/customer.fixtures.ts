@@ -1,6 +1,6 @@
-import type { CustomerSchema } from "#/models/customer.ts";
+import type { CreateCustomerDto, CustomerDto } from "#/models/customer.ts";
 
-export const validCustomer: CustomerSchema = {
+export const validCustomer: CustomerDto = {
   id: "x1s6w76ikz97ayizxwnwktx9",
   name: "John Doe",
   email: "john.doe@email.com",
@@ -92,6 +92,87 @@ export const invalidCustomer: Record<string, { customer: object; error: string }
   "invalid favoriteColor": {
     customer: {
       ...validCustomer,
+      favoriteColor: "invalid cuid",
+    },
+    error: "invalid favoriteColor format (should be a cuid2)",
+  },
+};
+
+export const validCreateCustomer: CreateCustomerDto = {
+  name: "John Doe",
+  email: "john.doe@email.com",
+  cpf: "95344355033",
+  favoriteColor: "ez1y2qioq9hrcn13nk3ve8hy",
+};
+
+export const invalidCreateCustomer: Record<string, { createCustomer: object; error: string }> = {
+  "missing name": {
+    createCustomer: {
+      ...validCreateCustomer,
+      name: undefined,
+    },
+    error: "name is required",
+  },
+
+  "invalid name": {
+    createCustomer: {
+      ...validCreateCustomer,
+      name: 123,
+    },
+    error: "name should be a string",
+  },
+
+  "missing cpf": {
+    createCustomer: {
+      ...validCreateCustomer,
+      cpf: undefined,
+    },
+    error: "cpf is required",
+  },
+
+  "invalid cpf (not a string)": {
+    createCustomer: {
+      ...validCreateCustomer,
+      cpf: 123,
+    },
+    error: "cpf should be a string",
+  },
+
+  "invalid cpf (algorithm)": {
+    createCustomer: {
+      ...validCreateCustomer,
+      cpf: "12345678900",
+    },
+    error: "invalid cpf",
+  },
+
+  "missing email": {
+    createCustomer: {
+      ...validCreateCustomer,
+      email: undefined,
+    },
+    error: "email is required",
+  },
+
+  "invalid email": {
+    createCustomer: {
+      ...validCreateCustomer,
+      email: "invalid email",
+    },
+    error: "invalid email",
+  },
+
+  "missing favoriteColor": {
+    createCustomer: {
+      ...validCreateCustomer,
+      favoriteColor: undefined,
+    },
+    error: "favoriteColor is required",
+  },
+
+  "invalid favoriteColor": {
+    createCustomer: {
+      ...validCreateCustomer,
       favoriteColor: "invalid cuid",
     },
     error: "invalid favoriteColor format (should be a cuid2)",

@@ -24,4 +24,9 @@ export const customerSchema = z.strictObject({
         : "invalid favoriteColor format (should be a cuid2)",
   }),
 });
-export type CustomerSchema = z.infer<typeof customerSchema>;
+export type CustomerDto = z.infer<typeof customerSchema>;
+
+export const createCustomerSchema = customerSchema.omit({
+  id: true,
+});
+export type CreateCustomerDto = z.infer<typeof createCustomerSchema>;
