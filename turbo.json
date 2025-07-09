@@ -9,6 +9,9 @@
     "test": {
       "cache": false
     },
+    "typecheck": {
+      "cache": false
+    },
     "biome-check": {
       "cache": false
     },

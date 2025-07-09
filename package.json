@@ -15,6 +15,7 @@
     "biome-check": "turbo biome-check",
     "biome-fix": "turbo biome-fix",
     "test": "turbo test",
+    "typecheck": "turbo typecheck",
     "dev": "turbo dev",
     "build": "turbo build",
     "dockerize": "tubo dockerize",
