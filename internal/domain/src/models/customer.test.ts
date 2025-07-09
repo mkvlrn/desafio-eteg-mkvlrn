@@ -1,11 +1,11 @@
 import { assert, describe, it } from "vitest";
-import { createCustomerSchema, customerSchema } from "#/models/customer.ts";
 import {
   invalidCreateCustomer,
   invalidCustomer,
   validCreateCustomer,
   validCustomer,
-} from "##/__fixtures__/customer.fixtures.ts";
+} from "#/__fixtures__/customer.fixtures.ts";
+import { createCustomerSchema, customerSchema } from "#/models/customer.ts";
 
 describe("customer model", () => {
   it("validates a valid customer", () => {

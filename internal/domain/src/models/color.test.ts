@@ -1,5 +1,4 @@
 import { assert, describe, it } from "vitest";
-import { colorSchema, createColorSchema } from "#/models/color.ts";
 import {
   invalidColor,
   invalidCreateColor,
@@ -7,7 +6,8 @@ import {
   validColorWithoutHex,
   validCreateColor,
   validCreateColorWithoutHex,
-} from "##/__fixtures__/color.fixtures.ts";
+} from "#/__fixtures__/color.fixtures.ts";
+import { colorSchema, createColorSchema } from "#/models/color.ts";
 
 describe("color model", () => {
   it("validates a valid color", () => {
