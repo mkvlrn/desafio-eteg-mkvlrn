@@ -9,7 +9,7 @@ import type { AppError } from "#/utils/app-error.ts";
  * make it easier to create Result objects.
  */
 export type Result<T, E = AppError> =
-  | { readonly error: undefined; readonly value: T }
+  | { readonly error: null; readonly value: T }
   | { readonly error: E };
 
 export const Result: {
@@ -21,7 +21,7 @@ export const Result: {
    * @param value The success value
    * @returns A Result object representing success
    */
-  ok: <T>(value: T): Result<T, never> => ({ error: undefined, value }),
+  ok: <T>(value: T): Result<T, never> => ({ error: null, value }),
   /**
    * Creates an error Result with the given error.
    * @param error The error value

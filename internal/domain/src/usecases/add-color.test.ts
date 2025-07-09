@@ -21,7 +21,7 @@ it("creates a new color", async () => {
 
   const result = await usecase.execute(validCreateColor);
 
-  assert.isUndefined(result.error);
+  assert.isNull(result.error);
   assert.deepStrictEqual(result.value, validColor);
 });
 

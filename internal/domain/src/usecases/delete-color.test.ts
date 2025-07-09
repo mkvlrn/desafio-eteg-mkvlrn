@@ -21,7 +21,7 @@ it("deletes color", async () => {
 
   const result = await usecase.execute(validColor.id);
 
-  assert.isUndefined(result.error);
+  assert.isNull(result.error);
   assert.isUndefined(result.value);
 });
 

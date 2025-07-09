@@ -22,7 +22,7 @@ it("creates a new customer", async () => {
 
   const result = await usecase.execute(validCreateCustomer);
 
-  assert.isUndefined(result.error);
+  assert.isNull(result.error);
   assert.deepStrictEqual(result.value, validCustomer);
 });
 

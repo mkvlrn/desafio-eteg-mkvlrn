@@ -20,7 +20,7 @@ it("returns customers", async () => {
 
   const result = await usecase.execute();
 
-  assert.isUndefined(result.error);
+  assert.isNull(result.error);
   assert.deepStrictEqual(result.value, [validCustomer]);
 });
 

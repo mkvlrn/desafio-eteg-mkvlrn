@@ -21,7 +21,7 @@ it("deletes customer", async () => {
 
   const result = await usecase.execute(validCustomer.id);
 
-  assert.isUndefined(result.error);
+  assert.isNull(result.error);
   assert.isUndefined(result.value);
 });
 
