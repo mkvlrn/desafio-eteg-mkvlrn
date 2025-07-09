@@ -2,8 +2,20 @@ import type { ColorDto } from "#/models/color.ts";
 import type { ColorRepository } from "#/repositories/color.repository.ts";
 import { Result } from "#/utils/result.ts";
 
-export async function listColorsUseCase(repo: ColorRepository): Promise<Result<ColorDto[]>> {
-  const result = await repo.findAll();
+export class ListColorsUseCase {
+  private readonly repository: ColorRepository;
 
-  return result.error ? Result.error(result.error) : Result.ok(result.value);
+  constructor(repo: ColorRepository) {
+    this.repository = repo;
+  }
+
+  async execute(): Promise<Result<ColorDto[]>> {
+    const result = await this.repository.findAll();
+
+    if (result.error) {
+      return Result.error(result.error);
+    }
+
+    return Result.ok(result.value);
+  }
 }
