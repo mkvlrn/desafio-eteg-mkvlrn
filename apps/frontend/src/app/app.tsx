@@ -1,10 +1,11 @@
 import { lazy, Suspense } from "react";
+import { ToastContainer } from "react-toastify";
 import { useLocation } from "wouter";
 import { Loading } from "#/components/loading.tsx";
 import { Navbar } from "#/components/navbar.tsx";
 
 const Customer = lazy(() =>
-  import("#/pages/customer.tsx").then((module) => ({ default: module.CustomerPage })),
+  import("#/pages/customer/customer.tsx").then((module) => ({ default: module.CustomerPage })),
 );
 const Admin = lazy(() =>
   import("#/pages/admin.tsx").then((module) => ({ default: module.AdminPage })),
@@ -29,6 +30,7 @@ export function App() {
         <div className="container mx-auto px-4 md:px-16">
           <Suspense fallback={<Loading />}>{Page ? <Page /> : <div>not found</div>}</Suspense>
         </div>
+        <ToastContainer />
       </main>
     </>
   );

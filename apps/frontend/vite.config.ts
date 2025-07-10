@@ -15,8 +15,9 @@ export default defineConfig({
     allowedHosts: true,
     proxy: {
       "/api": {
-        target: `http://localhost:${process.env.BACKEND_URL}`,
+        target: `http://localhost:${process.env.BACKEND_PORT}`,
         changeOrigin: true,
+        rewrite: (path) => path.replace("/api", ""),
       },
     },
   },

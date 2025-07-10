@@ -6,12 +6,6 @@ export const validColor: ColorDto = {
   hex: "#ff0000",
 };
 
-export const validColorWithoutHex: ColorDto = {
-  id: "xps9lijjnhtusv34s17d3ewy",
-  name: "green",
-  hex: null,
-};
-
 export const invalidColor: Record<string, { color: object; error: string }> = {
   "missing id": {
     color: {
@@ -45,7 +39,23 @@ export const invalidColor: Record<string, { color: object; error: string }> = {
     error: "name should be a string",
   },
 
-  "invalid hex": {
+  "missing hex": {
+    color: {
+      ...validColor,
+      hex: undefined,
+    },
+    error: "hex is required",
+  },
+
+  "invalid hex (not a string)": {
+    color: {
+      ...validColor,
+      hex: 123456,
+    },
+    error: "hex should be a string",
+  },
+
+  "invalid hex (format)": {
     color: {
       ...validColor,
       hex: "invalid hex",
@@ -57,11 +67,6 @@ export const invalidColor: Record<string, { color: object; error: string }> = {
 export const validCreateColor: CreateColorDto = {
   name: "red",
   hex: "#ff0000",
-};
-
-export const validCreateColorWithoutHex: CreateColorDto = {
-  name: "green",
-  hex: null,
 };
 
 export const invalidCreateColor: Record<string, { createColor: object; error: string }> = {
@@ -81,7 +86,15 @@ export const invalidCreateColor: Record<string, { createColor: object; error: st
     error: "name should be a string",
   },
 
-  "invalid hex": {
+  "invalid hex (not a string)": {
+    createColor: {
+      ...validCreateColor,
+      hex: 123456,
+    },
+    error: "hex should be a string",
+  },
+
+  "invalid hex (format)": {
     createColor: {
       ...validCreateColor,
       hex: "invalid hex",

@@ -3,21 +3,13 @@ import {
   invalidColor,
   invalidCreateColor,
   validColor,
-  validColorWithoutHex,
   validCreateColor,
-  validCreateColorWithoutHex,
 } from "../__fixtures__/color.fixtures.ts";
 import { colorSchema, createColorSchema } from "./color.ts";
 
 describe("color model", () => {
   it("validates a valid color", () => {
     const result = colorSchema.safeParse(validColor);
-
-    assert.isTrue(result.success);
-  });
-
-  it("validates a valid color without hex value", () => {
-    const result = colorSchema.safeParse(validColorWithoutHex);
 
     assert.isTrue(result.success);
   });
@@ -34,12 +26,6 @@ describe("color model", () => {
 describe("create color dto", () => {
   it("validates a valid color input", () => {
     const result = createColorSchema.safeParse(validCreateColor);
-
-    assert.isTrue(result.success);
-  });
-
-  it("validates a valid color input without hex value", () => {
-    const result = createColorSchema.safeParse(validCreateColorWithoutHex);
 
     assert.isTrue(result.success);
   });

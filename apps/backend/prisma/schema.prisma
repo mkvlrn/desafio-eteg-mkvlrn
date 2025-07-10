@@ -9,9 +9,9 @@ datasource db {
 }
 
 model Color {
-  id   String  @id @default(cuid())
-  name String  @unique
-  hex  String?
+  id   String @id @default(cuid())
+  name String @unique
+  hex  String @unique
 
   @@map("colors")
 }

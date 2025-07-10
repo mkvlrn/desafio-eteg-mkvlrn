@@ -10,9 +10,10 @@ export const colorSchema = z.strictObject({
     error: (err) => (err.input === undefined ? "name is required" : "name should be a string"),
   }),
   hex: z
-    .string({ error: "hex should be a string" })
-    .regex(colorRegex, { error: "invalid hex format" })
-    .nullish(),
+    .string({
+      error: (err) => (err.input === undefined ? "hex is required" : "hex should be a string"),
+    })
+    .regex(colorRegex, { error: "invalid hex format" }),
 });
 export type ColorDto = z.infer<typeof colorSchema>;
 
