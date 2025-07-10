@@ -12,7 +12,7 @@ export const colorSchema = z.strictObject({
   hex: z
     .string({ error: "hex should be a string" })
     .regex(colorRegex, { error: "invalid hex format" })
-    .nullable(),
+    .nullish(),
 });
 export type ColorDto = z.infer<typeof colorSchema>;
 
