@@ -1,9 +1,10 @@
 import { serve } from "@hono/node-server";
+import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient } from "@prisma/client";
 import { getServer } from "#/server/app.ts";
 
-const prisma = new PrismaClient();
-await prisma.$connect(); // https://github.com/prisma/prisma/issues/18813
+const prismaPg = new PrismaPg({ connectionString: process.env.DATABASE_URL });
+const prisma = new PrismaClient({ adapter: prismaPg });
 
 serve(
   {

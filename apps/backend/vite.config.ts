@@ -1,3 +1,5 @@
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import nodeExternals from "rollup-plugin-node-externals";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { defineConfig } from "vitest/config";
@@ -6,6 +8,17 @@ import { defineConfig } from "vitest/config";
 const entry = "./src/main.ts";
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      ".prisma/client/index-browser": resolve(
+        dirname(fileURLToPath(import.meta.url)),
+        "..",
+        "..",
+        "node_modules/.prisma/client/index-browser.js",
+      ),
+    },
+  },
+
   plugins: [
     // externalize node built-ins only, deps are bundled
     nodeExternals({ deps: false }),

@@ -1,6 +1,7 @@
 /** biome-ignore-all lint/style/noProcessEnv: fine for test files */
 
 import { execSync } from "node:child_process";
+import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient } from "@prisma/client";
 import { PostgreSqlContainer, type StartedPostgreSqlContainer } from "@testcontainers/postgresql";
 import { afterAll, assert, beforeAll, describe, expect, it } from "vitest";
@@ -14,9 +15,8 @@ describe("prisma color repository", () => {
 
   beforeAll(async () => {
     db = await new PostgreSqlContainer("postgres:latest").start();
-    prisma = new PrismaClient({
-      datasourceUrl: db.getConnectionUri(),
-    });
+    const prismaPg = new PrismaPg({ connectionString: db.getConnectionUri() });
+    prisma = new PrismaClient({ adapter: prismaPg });
     execSync("prisma migrate deploy", {
       // biome-ignore lint/style/useNamingConvention: fine for test files
       env: { ...process.env, DATABASE_URL: db.getConnectionUri() },
@@ -25,6 +25,7 @@ describe("prisma color repository", () => {
   }, 30000);
 
   afterAll(async () => {
+    await prisma.$disconnect();
     await db.stop();
   });
 
