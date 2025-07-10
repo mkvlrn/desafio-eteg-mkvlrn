@@ -42,5 +42,7 @@
       "#prisma/*": ["./generated/prisma/*"],
       "#domain/*": ["../../internal/domain/src/*"]
     }
-  }
+  },
+
+  "include": ["./", "../../internal/domain"]
 }
