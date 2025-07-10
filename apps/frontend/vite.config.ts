@@ -14,7 +14,10 @@ export default defineConfig({
     port: Number(3000),
     allowedHosts: true,
     proxy: {
-      "/api": "http://localhost:5000",
+      "/api": {
+        target: `http://localhost:${process.env.BACKEND_URL}`,
+        changeOrigin: true,
+      },
     },
   },
 

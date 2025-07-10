@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "NODE_ENV=production npx vite build",
-    "dev": "vite --host",
+    "dev": "dotenv -e ../../.env -- vite --host",
     "start": "vite preview --host",
     "test": "vitest",
     "biome-check": "biome check --no-errors-on-unmatched",
