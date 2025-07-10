@@ -32,8 +32,15 @@ export class PrismaCustomerRepository implements CustomerRepository {
 
   async findAll(): Promise<Result<CustomerDto[], AppError>> {
     try {
-      const colors = await this.prisma.customer.findMany();
-      return Result.ok(colors);
+      const customers = await this.prisma.customer.findMany();
+      const colors = await this.prisma.color.findMany();
+      const colorMap = new Map<string, string>(colors.map((c) => [c.id, c.hex]));
+      const enriched = customers.map((c) => ({
+        ...c,
+        favoriteColor: colorMap.get(c.favoriteColor) || "",
+      }));
+
+      return Result.ok(enriched);
     } catch (err) {
       const appError = new AppError("GENERIC_ERROR", (err as Error).message);
       return Result.error(appError);

@@ -11,6 +11,8 @@ describe("prisma customer repository", () => {
   let db: StartedPostgreSqlContainer;
   let prisma: PrismaClient;
   let repo: PrismaCustomerRepository;
+  let colorId: string;
+  let colorHex: string;
   let deleteId: string;
 
   beforeAll(async () => {
@@ -21,6 +23,15 @@ describe("prisma customer repository", () => {
       // biome-ignore lint/style/useNamingConvention: fine for test files
       env: { ...process.env, DATABASE_URL: db.getConnectionUri() },
     });
+    execSync("prisma db seed", {
+      // biome-ignore lint/style/useNamingConvention: fine for test files
+      env: { ...process.env, BACKEND_PORT: "5000", DATABASE_URL: db.getConnectionUri() },
+    });
+    const firstColor = await prisma.color.findFirst();
+    if (firstColor) {
+      colorId = firstColor.id;
+      colorHex = firstColor.hex;
+    }
     repo = new PrismaCustomerRepository(prisma);
   }, 30000);
 
@@ -34,7 +45,7 @@ describe("prisma customer repository", () => {
       name: "John Doe",
       cpf: "22552447058",
       email: "john@email.com",
-      favoriteColor: "colorcuid",
+      favoriteColor: colorId,
     });
 
     assert.isNull(result.error);
@@ -46,7 +57,7 @@ describe("prisma customer repository", () => {
         name: "John Doe",
         cpf: "22552447058",
         email: "john@email.com",
-        favoriteColor: "colorcuid",
+        favoriteColor: colorId,
       }),
     );
 
@@ -58,7 +69,7 @@ describe("prisma customer repository", () => {
       name: "Jane Doe",
       cpf: "81536098078",
       email: "jame@email.com",
-      favoriteColor: "colorcuid",
+      favoriteColor: colorId,
     });
 
     assert.isNull(result.error);
@@ -70,7 +81,7 @@ describe("prisma customer repository", () => {
         name: "Jane Doe",
         cpf: "81536098078",
         email: "jame@email.com",
-        favoriteColor: "colorcuid",
+        favoriteColor: colorId,
       }),
     );
   });
@@ -89,7 +100,7 @@ describe("prisma customer repository", () => {
           name: "John Doe",
           cpf: "22552447058",
           email: "john@email.com",
-          favoriteColor: "colorcuid",
+          favoriteColor: colorHex,
         }),
         expect.objectContaining({
           // biome-ignore lint/performance/useTopLevelRegex: overzealous
@@ -97,7 +108,7 @@ describe("prisma customer repository", () => {
           name: "Jane Doe",
           cpf: "81536098078",
           email: "jame@email.com",
-          favoriteColor: "colorcuid",
+          favoriteColor: colorHex,
         }),
       ]),
     );
@@ -115,7 +126,7 @@ describe("prisma customer repository", () => {
         name: "John Doe",
         cpf: "22552447058",
         email: "john@email.com",
-        favoriteColor: "colorcuid",
+        favoriteColor: colorId,
       }),
     );
   });
@@ -132,7 +143,7 @@ describe("prisma customer repository", () => {
         name: "John Doe",
         cpf: "22552447058",
         email: "john@email.com",
-        favoriteColor: "colorcuid",
+        favoriteColor: colorId,
       }),
     );
   });
@@ -149,7 +160,7 @@ describe("prisma customer repository", () => {
         name: "John Doe",
         cpf: "22552447058",
         email: "john@email.com",
-        favoriteColor: "colorcuid",
+        favoriteColor: colorId,
       }),
     );
   });
