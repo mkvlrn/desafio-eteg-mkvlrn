@@ -8,15 +8,12 @@ const Customer = lazy(() =>
   import("#/pages/customer/customer.tsx").then((module) => ({ default: module.CustomerPage })),
 );
 const Admin = lazy(() =>
-  import("#/pages/admin.tsx").then((module) => ({ default: module.AdminPage })),
+  import("#/pages/admin/admin.tsx").then((module) => ({ default: module.AdminPage })),
 );
-const About = lazy(() =>
-  import("#/pages/about.tsx").then((module) => ({ default: module.AboutPage })),
-);
+
 const pages = new Map<string, ReturnType<typeof lazy>>([
   ["/", Customer],
   ["/admin", Admin],
-  ["/about", About],
 ]);
 
 export function App() {

@@ -18,7 +18,6 @@ export function Navbar() {
   const navigation: Navigation = [
     { name: "Cadastro", href: "/", current: location === "/" },
     { name: "Admin", href: "/admin", current: location === "/admin" },
-    { name: "Sobre", href: "/about", current: location === "/about" },
   ];
 
   return (
