@@ -36,7 +36,10 @@
     "vitest": "^3.2.4"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.4",
+    "@heroicons/react": "^2.2.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "wouter": "^3.7.1"
   }
 }
