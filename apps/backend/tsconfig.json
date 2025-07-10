@@ -39,7 +39,6 @@
     "baseUrl": ".",
     "paths": {
       "#/*": ["./src/*"],
-      "#prisma/*": ["./generated/prisma/*"],
       "#domain/*": ["../../internal/domain/src/*"]
     }
   },

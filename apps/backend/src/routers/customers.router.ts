@@ -1,3 +1,4 @@
+import type { PrismaClient } from "@prisma/client";
 import { Hono } from "hono";
 import { PrismaCustomerRepository } from "#/infra/customer.prisma-repo.ts";
 import { createException } from "#/server/exception.ts";
@@ -6,7 +7,6 @@ import { AddCustomerUseCase } from "#domain/usecases/add-customer.ts";
 import { DeleteCustomerUseCase } from "#domain/usecases/delete-customer.ts";
 import { ListCustomersUseCase } from "#domain/usecases/list-customers.ts";
 import { AppError } from "#domain/utils/app-error.ts";
-import type { PrismaClient } from "#prisma/index.js";
 
 export function getCustomersRouter(prisma: PrismaClient) {
   const router = new Hono();

@@ -1,8 +1,8 @@
+import type { PrismaClient } from "@prisma/client";
 import type { ColorDto, CreateColorDto } from "#domain/models/color.ts";
 import type { ColorRepository } from "#domain/repositories/color.repository.ts";
 import { AppError } from "#domain/utils/app-error.ts";
 import { Result } from "#domain/utils/result.ts";
-import type { PrismaClient } from "#prisma/index.js";
 
 export class PrismaColorRepository implements ColorRepository {
   private readonly prisma: PrismaClient;

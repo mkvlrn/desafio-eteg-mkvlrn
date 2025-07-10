@@ -1,8 +1,8 @@
+import type { PrismaClient } from "@prisma/client";
 import type { CreateCustomerDto, CustomerDto } from "#domain/models/customer.ts";
 import type { CustomerRepository } from "#domain/repositories/customer.repository.ts";
 import { AppError } from "#domain/utils/app-error.ts";
 import { Result } from "#domain/utils/result.ts";
-import type { PrismaClient } from "#prisma/index.js";
 
 export class PrismaCustomerRepository implements CustomerRepository {
   private readonly prisma: PrismaClient;
@@ -78,7 +78,6 @@ export class PrismaCustomerRepository implements CustomerRepository {
       return Result.ok(result);
     } catch (err) {
       const appError = new AppError("GENERIC_ERROR", (err as Error).message);
-      console.log(err);
 
       return Result.error(appError);
     }

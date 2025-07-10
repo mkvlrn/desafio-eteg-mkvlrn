@@ -1,10 +1,10 @@
 /** biome-ignore-all lint/style/noProcessEnv: fine for test files */
 
 import { execSync } from "node:child_process";
+import { PrismaClient } from "@prisma/client";
 import { PostgreSqlContainer, type StartedPostgreSqlContainer } from "@testcontainers/postgresql";
 import { afterAll, assert, beforeAll, describe, expect, it } from "vitest";
 import { PrismaCustomerRepository } from "#/infra/customer.prisma-repo.ts";
-import { PrismaClient } from "#prisma/index.js";
 
 describe("prisma customer repository", () => {
   let db: StartedPostgreSqlContainer;

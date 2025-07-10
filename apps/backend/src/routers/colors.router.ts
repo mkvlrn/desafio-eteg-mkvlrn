@@ -1,3 +1,4 @@
+import type { PrismaClient } from "@prisma/client";
 import { Hono } from "hono";
 import { PrismaColorRepository } from "#/infra/color.prisma-repo.ts";
 import { createException } from "#/server/exception.ts";
@@ -6,7 +7,6 @@ import { AddColorUseCase } from "#domain/usecases/add-color.ts";
 import { DeleteColorUseCase } from "#domain/usecases/delete-color.ts";
 import { ListColorsUseCase } from "#domain/usecases/list-colors.ts";
 import { AppError } from "#domain/utils/app-error.ts";
-import type { PrismaClient } from "#prisma/index.js";
 
 export function getColorsRouter(prisma: PrismaClient) {
   const router = new Hono();
