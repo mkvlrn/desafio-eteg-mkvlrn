@@ -29,7 +29,7 @@ export class DeleteCustomerUseCase {
       return Result.error(new AppError("REPOSITORY_ERROR", exists.error.message));
     }
     if (!exists.value) {
-      return Result.error(new AppError("INEXISTENT", `customer with id '${id}' not registered`));
+      return Result.error(new AppError("INEXISTENT", `cliente com id '${id}' não existe`));
     }
 
     return Result.ok(undefined);

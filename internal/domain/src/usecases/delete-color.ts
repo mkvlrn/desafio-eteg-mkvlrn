@@ -29,7 +29,7 @@ export class DeleteColorUseCase {
       return Result.error(new AppError("REPOSITORY_ERROR", exists.error.message));
     }
     if (!exists.value) {
-      return Result.error(new AppError("INEXISTENT", `color with id '${id}' not registered`));
+      return Result.error(new AppError("INEXISTENT", `cor com id '${id}' não existe`));
     }
 
     return Result.ok(undefined);

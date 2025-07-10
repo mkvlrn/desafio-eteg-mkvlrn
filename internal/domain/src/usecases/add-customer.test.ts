@@ -37,7 +37,7 @@ describe("returns error if customer is not unique", () => {
     assert.strictEqual(result.error.name, "NOT_UNIQUE");
     assert.strictEqual(
       result.error.message,
-      `customer with cpf '${validCreateCustomer.cpf}' already registered`,
+      `cliente com cpf '${validCreateCustomer.cpf}' já existe`,
     );
   });
 
@@ -52,7 +52,7 @@ describe("returns error if customer is not unique", () => {
     assert.strictEqual(result.error.name, "NOT_UNIQUE");
     assert.strictEqual(
       result.error.message,
-      `customer with email '${validCreateCustomer.email}' already registered`,
+      `cliente com email '${validCreateCustomer.email}' já existe`,
     );
   });
 });

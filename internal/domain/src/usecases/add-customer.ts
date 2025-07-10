@@ -30,9 +30,7 @@ export class AddCustomerUseCase {
       return Result.error(new AppError("REPOSITORY_ERROR", cpfExists.error.message));
     }
     if (cpfExists.value) {
-      return Result.error(
-        new AppError("NOT_UNIQUE", `customer with cpf '${input.cpf}' already registered`),
-      );
+      return Result.error(new AppError("NOT_UNIQUE", `cliente com cpf '${input.cpf}' já existe`));
     }
 
     const emailExists = await this.repository.findByEmail(input.email);
@@ -41,7 +39,7 @@ export class AddCustomerUseCase {
     }
     if (emailExists.value) {
       return Result.error(
-        new AppError("NOT_UNIQUE", `customer with email '${input.email}' already registered`),
+        new AppError("NOT_UNIQUE", `cliente com email '${input.email}' já existe`),
       );
     }
 

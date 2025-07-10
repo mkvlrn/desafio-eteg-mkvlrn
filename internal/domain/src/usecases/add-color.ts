@@ -30,9 +30,7 @@ export class AddColorUseCase {
       return Result.error(new AppError("REPOSITORY_ERROR", nameExists.error.message));
     }
     if (nameExists.value) {
-      return Result.error(
-        new AppError("NOT_UNIQUE", `color with name '${input.name}' already registered`),
-      );
+      return Result.error(new AppError("NOT_UNIQUE", `cor com nome '${input.name}' já existe`));
     }
 
     return Result.ok(undefined);

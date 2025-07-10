@@ -33,10 +33,7 @@ it("returns error if color name is not unique", async () => {
   assert.isDefined(result.error);
   assert.instanceOf(result.error, AppError);
   assert.strictEqual(result.error.name, "NOT_UNIQUE");
-  assert.strictEqual(
-    result.error.message,
-    `color with name '${validCreateColor.name}' already registered`,
-  );
+  assert.strictEqual(result.error.message, `cor com nome '${validCreateColor.name}' já existe`);
 });
 
 describe("returns error if repository throws", () => {

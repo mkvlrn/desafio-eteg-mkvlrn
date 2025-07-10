@@ -25,7 +25,7 @@ it("deletes customer", async () => {
   assert.isUndefined(result.value);
 });
 
-it("returns error if customer is not registered", async () => {
+it("returns error if customer is não existe", async () => {
   vi.spyOn(mockCustomerRepository, "findById").mockResolvedValue(Result.ok(null));
 
   const result = await usecase.execute(validCustomer.id);
@@ -33,7 +33,7 @@ it("returns error if customer is not registered", async () => {
   assert.isDefined(result.error);
   assert.instanceOf(result.error, AppError);
   assert.strictEqual(result.error.name, "INEXISTENT");
-  assert.strictEqual(result.error.message, `customer with id '${validCustomer.id}' not registered`);
+  assert.strictEqual(result.error.message, `cliente com id '${validCustomer.id}' não existe`);
 });
 
 describe("returns error if repository throws", () => {

@@ -25,7 +25,7 @@ it("deletes color", async () => {
   assert.isUndefined(result.value);
 });
 
-it("returns error if color is not registered", async () => {
+it("returns error if color is não existe", async () => {
   vi.spyOn(mockColorRepository, "findById").mockResolvedValue(Result.ok(null));
 
   const result = await usecase.execute(validColor.id);
@@ -33,7 +33,7 @@ it("returns error if color is not registered", async () => {
   assert.isDefined(result.error);
   assert.instanceOf(result.error, AppError);
   assert.strictEqual(result.error.name, "INEXISTENT");
-  assert.strictEqual(result.error.message, `color with id '${validColor.id}' not registered`);
+  assert.strictEqual(result.error.message, `cor com id '${validColor.id}' não existe`);
 });
 
 describe("returns error if repository throws", () => {
