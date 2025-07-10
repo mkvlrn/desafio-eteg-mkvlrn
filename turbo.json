@@ -4,7 +4,8 @@
   "ui": "tui",
   "tasks": {
     "dev": {
-      "cache": false
+      "cache": false,
+      "persistent": true
     },
     "test": {
       "cache": false

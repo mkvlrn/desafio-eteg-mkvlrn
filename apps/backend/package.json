@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "vite build",
-    "dev": "tsx --env-file-if-exists=../../.env --watch src/main.ts",
+    "dev": "NODE_ENV=development tsx --env-file-if-exists=../../.env --watch src/main.ts",
     "start": "node build/bundle.js",
     "test": "vitest",
     "biome-check": "biome check --no-errors-on-unmatched",
