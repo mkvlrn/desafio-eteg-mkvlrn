@@ -1,11 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --foreground: #daf7dc;
-  --background: #2f4858;
+  --c1: #231f20;
+  --c2: #bb4430;
+  --c3: #7ebdc2;
+  --c4: #f3dfa2;
+  --c5: #efe6dd;
 
-  --color-\*: initial; /* tw v4 adds A LOT of default colors to a theme */
-  --color-foreground: var(--foreground);
-  --color-background: var(--background);
+  --color-c1: var(--c1);
+  --color-c2: var(--c2);
+  --color-c3: var(--c3);
+  --color-c4: var(--c4);
+  --color-c5: var(--c5);
   --font-roboto-condensed: "Roboto Condensed", sans-serif;
 }

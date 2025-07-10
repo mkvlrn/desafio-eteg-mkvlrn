@@ -78,6 +78,21 @@
           }
         }
       }
+    },
+
+    {
+      // experimental, but sorting tailwind classes is so cool
+      "includes": ["**/*.tsx"],
+      "linter": {
+        "rules": {
+          "nursery": {
+            "useSortedClasses": {
+              "level": "info",
+              "fix": "safe"
+            }
+          }
+        }
+      }
     }
   ]
 }
