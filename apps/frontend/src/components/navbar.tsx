@@ -18,6 +18,7 @@ export function Navbar() {
   const navigation: Navigation = [
     { name: "Cadastro", href: "/", current: location === "/" },
     { name: "Admin", href: "/admin", current: location === "/admin" },
+    { name: "Sobre", href: "/about", current: location === "/about" },
   ];
 
   return (
@@ -32,15 +33,16 @@ export function Navbar() {
             </DisclosureButton>
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex shrink-0 items-center">
+            <div className="flex shrink-0 items-center gap-x-4">
               <UserPlusIcon className="h-8 w-auto text-c5" />
+              <span className="text-c5">desafio-eteg-mkvlrn</span>
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
                 {navigation.map((item) => (
                   <button
                     className={classNames(
-                      item.current ? "bg-c4 text-c1" : "text-c4 hover:bg-c2 hover:text-c5",
+                      item.current ? "bg-c4 text-c1" : "text-c4 hover:bg-c5 hover:text-c2",
                       "cursor-pointer rounded-md px-3 py-2 font-medium text-sm",
                     )}
                     key={item.name}
@@ -62,9 +64,7 @@ export function Navbar() {
             <DisclosureButton
               as="button"
               className={classNames(
-                item.current
-                  ? "bg-gray-900 text-white"
-                  : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                item.current ? "bg-c4 text-c1" : "text-c4 hover:bg-c5 hover:text-c2",
                 "block w-full cursor-pointer rounded-md px-3 py-2 font-medium text-base",
               )}
               key={item.name}
