@@ -5,7 +5,7 @@ import { assert, it } from "vitest";
 import { getServer } from "#/server/app.ts";
 
 it("generates the main server", () => {
-  const prismaPg = new PrismaPg({ connectionString: process.env.DATABASE_URL });
+  const prismaPg = new PrismaPg({ connectionString: "" });
   const server = getServer(new PrismaClient({ adapter: prismaPg }));
 
   assert.isDefined(server);
