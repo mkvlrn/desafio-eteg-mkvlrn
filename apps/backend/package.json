@@ -16,8 +16,9 @@
     "biome-check": "biome check --no-errors-on-unmatched",
     "biome-fix": "npm run biome-check --write",
     "typecheck": "tsc --noEmit",
-    "prisma:migrate": "dotenv -e ../../.env -- prisma migrate dev",
-    "prisma:generate": "dotenv -e ../../.env -- prisma generate"
+    "prisma-migrate": "NODE_ENV=development dotenv -e ../../.env -- prisma migrate dev",
+    "prisma-reset": "NODE_ENV=development dotenv -e ../../.env -- prisma migrate reset",
+    "prisma-generate": "NODE_ENV=development dotenv -e ../../.env -- prisma generate"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.1.1",
@@ -37,5 +38,8 @@
     "@prisma/adapter-pg": "^6.11.1",
     "@prisma/client": "^6.11.1",
     "hono": "^4.8.4"
+  },
+  "prisma": {
+    "seed": "tsx ./src/server/seed.ts"
   }
 }
