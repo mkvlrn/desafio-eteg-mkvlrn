@@ -68,7 +68,7 @@ export class PrismaColorRepository implements ColorRepository {
 
   async delete(id: string): Promise<Result<void, AppError>> {
     try {
-      await this.prisma.color.findUnique({
+      await this.prisma.color.delete({
         where: {
           id,
         },
