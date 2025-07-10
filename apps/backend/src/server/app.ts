@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import { HTTPException } from "hono/http-exception";
 import { getColorsRouter } from "#/routers/colors.router.ts";
+import { getCustomersRouter } from "#/routers/customers.router.ts";
 import type { PrismaClient } from "#prisma/index.js";
 
 export function getServer(prisma: PrismaClient): Hono {
@@ -14,6 +15,7 @@ export function getServer(prisma: PrismaClient): Hono {
   });
 
   app.route("/colors", getColorsRouter(prisma));
+  app.route("/customers", getCustomersRouter(prisma));
 
   return app;
 }

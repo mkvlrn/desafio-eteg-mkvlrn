@@ -41,6 +41,22 @@ export const invalidCustomer: Record<string, { customer: object; error: string }
     error: "name should be a string",
   },
 
+  "name too short": {
+    customer: {
+      ...validCustomer,
+      name: "ed",
+    },
+    error: "name min length is 3",
+  },
+
+  "name too long": {
+    customer: {
+      ...validCustomer,
+      name: "x".repeat(81),
+    },
+    error: "name max length is 80",
+  },
+
   "missing cpf": {
     customer: {
       ...validCustomer,

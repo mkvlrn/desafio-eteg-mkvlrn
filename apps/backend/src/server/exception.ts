@@ -15,7 +15,7 @@ export function createException(appError: AppError): HTTPException {
   const response = {
     status: map.get(appError.name),
     statusText: appError.name === "REPOSITORY_ERROR" ? "BAD_GATEWAY" : appError.name,
-    message: appError.message,
+    message: appError.name === "GENERIC_ERROR" ? "unexpected server error" : appError.message,
   };
 
   return new HTTPException(map.get(appError.name), {

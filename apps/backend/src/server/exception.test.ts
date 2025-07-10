@@ -23,7 +23,7 @@ describe("createException", () => {
     const map = new Map<AppErrorName, ContentfulStatusCode>();
     map.set("BAD_REQUEST", 400);
     map.set("INEXISTENT", 404);
-    map.set("NOT_UNIQUE", 422);
+    map.set("NOT_UNIQUE", 409);
     map.set("GENERIC_ERROR", 500);
     map.set("REPOSITORY_ERROR", 502);
 

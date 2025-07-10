@@ -3,6 +3,7 @@ import { getServer } from "#/server/app.ts";
 import { PrismaClient } from "#prisma/index.js";
 
 const prisma = new PrismaClient();
+await prisma.$connect(); // https://github.com/prisma/prisma/issues/18813
 
 serve(
   {

@@ -78,13 +78,15 @@ export class PrismaCustomerRepository implements CustomerRepository {
       return Result.ok(result);
     } catch (err) {
       const appError = new AppError("GENERIC_ERROR", (err as Error).message);
+      console.log(err);
+
       return Result.error(appError);
     }
   }
 
   async delete(id: string): Promise<Result<void, AppError>> {
     try {
-      await this.prisma.color.delete({
+      await this.prisma.customer.delete({
         where: {
           id,
         },
