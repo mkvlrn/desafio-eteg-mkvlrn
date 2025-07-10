@@ -12,7 +12,7 @@ export const invalidColor: Record<string, { color: object; error: string }> = {
       ...validColor,
       id: undefined,
     },
-    error: "id is required",
+    error: "'id' é campo obrigatório",
   },
 
   "invalid id": {
@@ -20,7 +20,7 @@ export const invalidColor: Record<string, { color: object; error: string }> = {
       ...validColor,
       id: "invalid cuid",
     },
-    error: "invalid id format",
+    error: "'id' com formato inválido",
   },
 
   "missing name": {
@@ -28,7 +28,7 @@ export const invalidColor: Record<string, { color: object; error: string }> = {
       ...validColor,
       name: undefined,
     },
-    error: "name is required",
+    error: "'name' é campo obrigatório",
   },
 
   "invalid name": {
@@ -36,7 +36,7 @@ export const invalidColor: Record<string, { color: object; error: string }> = {
       ...validColor,
       name: 123,
     },
-    error: "name should be a string",
+    error: "'name' deve ser uma string",
   },
 
   "missing hex": {
@@ -44,7 +44,7 @@ export const invalidColor: Record<string, { color: object; error: string }> = {
       ...validColor,
       hex: undefined,
     },
-    error: "hex is required",
+    error: "'hex' é campo obrigatório",
   },
 
   "invalid hex (not a string)": {
@@ -52,7 +52,7 @@ export const invalidColor: Record<string, { color: object; error: string }> = {
       ...validColor,
       hex: 123456,
     },
-    error: "hex should be a string",
+    error: "'hex' deve ser uma string",
   },
 
   "invalid hex (format)": {
@@ -75,7 +75,7 @@ export const invalidCreateColor: Record<string, { createColor: object; error: st
       ...validCreateColor,
       name: undefined,
     },
-    error: "name is required",
+    error: "'name' é campo obrigatório",
   },
 
   "invalid name": {
@@ -83,7 +83,7 @@ export const invalidCreateColor: Record<string, { createColor: object; error: st
       ...validCreateColor,
       name: 123,
     },
-    error: "name should be a string",
+    error: "'name' deve ser uma string",
   },
 
   "invalid hex (not a string)": {
@@ -91,7 +91,7 @@ export const invalidCreateColor: Record<string, { createColor: object; error: st
       ...validCreateColor,
       hex: 123456,
     },
-    error: "hex should be a string",
+    error: "'hex' deve ser uma string",
   },
 
   "invalid hex (format)": {

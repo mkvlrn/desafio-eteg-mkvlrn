@@ -14,7 +14,7 @@ export const invalidCustomer: Record<string, { customer: object; error: string }
       ...validCustomer,
       id: undefined,
     },
-    error: "id is required",
+    error: "'id' é campo obrigatório",
   },
 
   "invalid id": {
@@ -22,7 +22,7 @@ export const invalidCustomer: Record<string, { customer: object; error: string }
       ...validCustomer,
       id: "invalid cuid",
     },
-    error: "invalid id format (should be a cuid2)",
+    error: "'id' com formato inválido (deve ser uma cuid2)",
   },
 
   "missing name": {
@@ -30,7 +30,7 @@ export const invalidCustomer: Record<string, { customer: object; error: string }
       ...validCustomer,
       name: undefined,
     },
-    error: "name is required",
+    error: "'name' é campo obrigatório",
   },
 
   "invalid name": {
@@ -38,7 +38,7 @@ export const invalidCustomer: Record<string, { customer: object; error: string }
       ...validCustomer,
       name: 123,
     },
-    error: "name should be a string",
+    error: "'name' deve ser uma string",
   },
 
   "name too short": {
@@ -46,7 +46,7 @@ export const invalidCustomer: Record<string, { customer: object; error: string }
       ...validCustomer,
       name: "ed",
     },
-    error: "name min length is 3",
+    error: "'name' deve ter no mínimo 3 caracteres",
   },
 
   "name too long": {
@@ -54,7 +54,7 @@ export const invalidCustomer: Record<string, { customer: object; error: string }
       ...validCustomer,
       name: "x".repeat(81),
     },
-    error: "name max length is 80",
+    error: "'name' deve ter no máximo 80 caracteres",
   },
 
   "missing cpf": {
@@ -62,23 +62,23 @@ export const invalidCustomer: Record<string, { customer: object; error: string }
       ...validCustomer,
       cpf: undefined,
     },
-    error: "cpf is required",
+    error: "'cpf' e campo obrigatório",
   },
 
-  "invalid cpf (not a string)": {
+  "cpf inválido (not a string)": {
     customer: {
       ...validCustomer,
       cpf: 123,
     },
-    error: "cpf should be a string",
+    error: "'cpf' deve ser uma string",
   },
 
-  "invalid cpf (algorithm)": {
+  "cpf inválido (algorithm)": {
     customer: {
       ...validCustomer,
       cpf: "12345678900",
     },
-    error: "invalid cpf",
+    error: "cpf inválido",
   },
 
   "missing email": {
@@ -86,15 +86,15 @@ export const invalidCustomer: Record<string, { customer: object; error: string }
       ...validCustomer,
       email: undefined,
     },
-    error: "email is required",
+    error: "'email' é campo obrigatório",
   },
 
-  "invalid email": {
+  "email inválido": {
     customer: {
       ...validCustomer,
-      email: "invalid email",
+      email: "email inválido",
     },
-    error: "invalid email",
+    error: "email inválido",
   },
 
   "missing favoriteColor": {
@@ -102,7 +102,7 @@ export const invalidCustomer: Record<string, { customer: object; error: string }
       ...validCustomer,
       favoriteColor: undefined,
     },
-    error: "favoriteColor is required",
+    error: "'favoriteColor' é campo obrigatório",
   },
 
   "invalid favoriteColor": {
@@ -110,7 +110,7 @@ export const invalidCustomer: Record<string, { customer: object; error: string }
       ...validCustomer,
       favoriteColor: "invalid cuid",
     },
-    error: "invalid favoriteColor format (should be a cuid2)",
+    error: "formato inválido para 'favoriteColor' (deve ser um cuid2)",
   },
 };
 
@@ -127,7 +127,7 @@ export const invalidCreateCustomer: Record<string, { createCustomer: object; err
       ...validCreateCustomer,
       name: undefined,
     },
-    error: "name is required",
+    error: "'name' é campo obrigatório",
   },
 
   "invalid name": {
@@ -135,7 +135,7 @@ export const invalidCreateCustomer: Record<string, { createCustomer: object; err
       ...validCreateCustomer,
       name: 123,
     },
-    error: "name should be a string",
+    error: "'name' deve ser uma string",
   },
 
   "missing cpf": {
@@ -143,23 +143,23 @@ export const invalidCreateCustomer: Record<string, { createCustomer: object; err
       ...validCreateCustomer,
       cpf: undefined,
     },
-    error: "cpf is required",
+    error: "'cpf' e campo obrigatório",
   },
 
-  "invalid cpf (not a string)": {
+  "cpf inválido (not a string)": {
     createCustomer: {
       ...validCreateCustomer,
       cpf: 123,
     },
-    error: "cpf should be a string",
+    error: "'cpf' deve ser uma string",
   },
 
-  "invalid cpf (algorithm)": {
+  "cpf inválido (algorithm)": {
     createCustomer: {
       ...validCreateCustomer,
       cpf: "12345678900",
     },
-    error: "invalid cpf",
+    error: "cpf inválido",
   },
 
   "missing email": {
@@ -167,15 +167,15 @@ export const invalidCreateCustomer: Record<string, { createCustomer: object; err
       ...validCreateCustomer,
       email: undefined,
     },
-    error: "email is required",
+    error: "'email' é campo obrigatório",
   },
 
-  "invalid email": {
+  "email inválido": {
     createCustomer: {
       ...validCreateCustomer,
-      email: "invalid email",
+      email: "email inválido",
     },
-    error: "invalid email",
+    error: "email inválido",
   },
 
   "missing favoriteColor": {
@@ -183,7 +183,7 @@ export const invalidCreateCustomer: Record<string, { createCustomer: object; err
       ...validCreateCustomer,
       favoriteColor: undefined,
     },
-    error: "favoriteColor is required",
+    error: "'favoriteColor' é campo obrigatório",
   },
 
   "invalid favoriteColor": {
@@ -191,6 +191,6 @@ export const invalidCreateCustomer: Record<string, { createCustomer: object; err
       ...validCreateCustomer,
       favoriteColor: "invalid cuid",
     },
-    error: "invalid favoriteColor format (should be a cuid2)",
+    error: "formato inválido para 'favoriteColor' (deve ser um cuid2)",
   },
 };
