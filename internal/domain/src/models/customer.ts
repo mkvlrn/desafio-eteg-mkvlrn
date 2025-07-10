@@ -1,5 +1,5 @@
 import cpf from "cpf-check";
-import { z } from "zod/v4";
+import { z } from "zod";
 
 export const customerSchema = z.strictObject({
   id: z.cuid2({

@@ -18,12 +18,12 @@
     "rollup-plugin-node-externals": "^8.0.1",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",
-    "vite": "^7.0.3",
+    "vite": "^7.0.4",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.2.4"
   },
   "dependencies": {
     "cpf-check": "^3.0.0",
-    "zod": "^3.25.76"
+    "zod": "^4.0.2"
   }
 }

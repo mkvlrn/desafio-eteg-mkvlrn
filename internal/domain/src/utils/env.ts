@@ -1,6 +1,6 @@
 /** biome-ignore-all lint/style/useNamingConvention: bunch of ALL_CAPS vars */
 
-import { z } from "zod/v4";
+import { z } from "zod";
 
 const env = z
   .object({
