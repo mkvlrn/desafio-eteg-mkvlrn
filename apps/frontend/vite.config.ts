@@ -15,7 +15,10 @@ export default defineConfig({
     allowedHosts: true,
     proxy: {
       "/api": {
-        target: `http://localhost:${process.env.BACKEND_PORT}`,
+        target: `http://localhost:${
+          // biome-ignore lint/style/noProcessEnv: hella needed
+          process.env.BACKEND_PORT
+        }`,
         changeOrigin: true,
         rewrite: (path) => path.replace("/api", ""),
       },
