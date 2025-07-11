@@ -51,6 +51,14 @@ export function Navbar() {
                     {item.name}
                   </button>
                 ))}
+                <a
+                  className="cursor-pointer rounded-md px-3 py-2 font-medium text-c4 text-sm hover:bg-c5 hover:text-c2"
+                  href="https://github.com/mkvlrn/desafio-eteg-mkvlrn"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Github
+                </a>
               </div>
             </div>
           </div>

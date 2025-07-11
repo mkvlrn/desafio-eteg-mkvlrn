@@ -1,7 +1,7 @@
 {
-  "name": "Vite-React Single Page App",
-  "short_name": "vite-react-spa",
-  "description": "Vite-React Single Page App",
+  "name": "Desafio Eteg - mkvlrn, o retorno",
+  "short_name": "eteg-mkvlrn",
+  "description": "Desafio!",
   "start_url": "/",
   "lang": "en",
   "display": "standalone",
