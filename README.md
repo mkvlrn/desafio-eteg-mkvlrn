@@ -110,6 +110,8 @@ pra isso:
 - [zod](https://github.com/colinhacks/zod) - ALL HAIL
 - [cpf-check](https://github.com/flasd/cpf-check) pra validar os CPFs - lib minúscula com 7 anos de idade, sem dependências, bem eficiente
 
+e usei um tipo [Result](https://github.com/mkvlrn/desafio-eteg-mkvlrn/blob/main/internal/domain/src/utils/result.ts) inspirado em Go, pra evitar exception hell e tornar o fluxo de sucesso/erro mais explícito. cada função retorna ok ou error, e o consumidor decide o que fazer.
+
 ## faq
 
 ### _porque monorepo?_
