@@ -17,9 +17,13 @@ const rainbowColors = [
 ];
 
 try {
-  await prisma.color.createMany({
-    data: rainbowColors,
-  });
+  for (const color of rainbowColors) {
+    await prisma.color.upsert({
+      where: { hex: color.hex },
+      update: {},
+      create: color,
+    });
+  }
 } catch (err) {
   console.error("seed failed:", (err as Error).message);
 } finally {

@@ -11,6 +11,7 @@ serve(
   {
     fetch: getServer(prisma).fetch,
     port: Number(env.BACKEND_PORT),
+    hostname: "0.0.0.0",
   },
   // biome-ignore lint/suspicious/noConsole: just some server info
   (info) => console.info(`up @${info.port}`),

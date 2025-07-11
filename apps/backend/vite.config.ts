@@ -5,7 +5,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import { defineConfig } from "vitest/config";
 
 // application entry point
-const entry = "./src/main.ts";
+const entry = ["./src/main.ts", "./src/server/seed.ts"];
 
 export default defineConfig({
   resolve: {
@@ -21,7 +21,7 @@ export default defineConfig({
 
   plugins: [
     // externalize node built-ins only, deps are bundled
-    nodeExternals({ deps: false }),
+    nodeExternals({}),
     // resolve tsconfig path aliases
     tsconfigPaths(),
   ],
@@ -31,10 +31,9 @@ export default defineConfig({
     lib: {
       entry,
       formats: ["es"],
-      fileName: "bundle",
     },
     sourcemap: true,
-    outDir: "./build",
+    outDir: "../../build/backend",
     emptyOutDir: true,
   },
 

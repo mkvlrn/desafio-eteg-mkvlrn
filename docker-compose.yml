@@ -1,6 +1,20 @@
 name: desafio-eteg-mklvrn
 
 services:
+  app:
+    container_name: app
+    build:
+      context: .
+      tags:
+        - mkvlrn/desafio-eteg-mkvlrn
+    ports:
+      - "8080:80"
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@db:5432/desafio_eteg_mkvlrn
+      BACKEND_PORT: 5000
+      NODE_ENV: production
+    depends_on:
+      - postgres
   postgres:
     container_name: db
     image: postgres:latest

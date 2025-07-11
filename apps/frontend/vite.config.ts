@@ -25,7 +25,7 @@ export default defineConfig({
   build: {
     target: "esnext",
     sourcemap: true,
-    outDir: "./build",
+    outDir: "../../build/frontend",
     emptyOutDir: true,
   },
 
