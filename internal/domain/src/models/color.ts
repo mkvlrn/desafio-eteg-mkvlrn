@@ -16,7 +16,7 @@ export const colorSchema = z.strictObject({
       error: (err) =>
         err.input === undefined ? "'hex' é campo obrigatório" : "'hex' deve ser uma string",
     })
-    .regex(colorRegex, { error: "invalid hex format" }),
+    .regex(colorRegex, { error: "formato hex inválido" }),
 });
 export type ColorDto = z.infer<typeof colorSchema>;
 

@@ -60,7 +60,7 @@ export const invalidColor: Record<string, { color: object; error: string }> = {
       ...validColor,
       hex: "invalid hex",
     },
-    error: "invalid hex format",
+    error: "formato hex inválido",
   },
 };
 
@@ -99,6 +99,6 @@ export const invalidCreateColor: Record<string, { createColor: object; error: st
       ...validCreateColor,
       hex: "invalid hex",
     },
-    error: "invalid hex format",
+    error: "formato hex inválido",
   },
 };
