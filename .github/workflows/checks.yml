@@ -19,6 +19,7 @@ jobs:
           cache: "npm"
       - run: npm ci
       - run: |
+          DATABASE_URL="postgresql://user:pass@localhost:5432/testdb?schema=public" npx prisma generate --schema=./apps/backend/prisma/schema.prisma
           npm run typecheck
           npm run biome-check
           npm run test

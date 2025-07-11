@@ -18,7 +18,7 @@
     "typecheck": "turbo typecheck",
     "dev": "turbo dev",
     "build": "turbo build",
-    "dockerize": "tubo dockerize",
+    "dockerize": "turbo dockerize",
     "prepare": "husky"
   },
   "workspaces": [
