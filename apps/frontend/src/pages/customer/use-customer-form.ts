@@ -74,10 +74,10 @@ export function useCustomerForm() {
         position: "top-center",
         theme: "colored",
       });
+      resetForm();
     } catch (err) {
       toast.error(`Erro: ${(err as Error).message}`, { position: "top-center", theme: "colored" });
     } finally {
-      resetForm();
       setWorking(false);
     }
   }
