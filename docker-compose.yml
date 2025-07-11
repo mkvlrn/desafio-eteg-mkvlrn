@@ -17,7 +17,7 @@ services:
       - postgres
   postgres:
     container_name: db
-    image: postgres:latest
+    image: postgres:alpine
     restart: always
     ports:
       - 5432:5432
