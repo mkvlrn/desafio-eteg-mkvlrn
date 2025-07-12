@@ -38,6 +38,8 @@ vai buscar imagens:
 docker compose up
 ```
 
+acesso local em http://localhost:8080
+
 ### dev mode, somente db em container
 
 requisitos:
@@ -60,11 +62,19 @@ instale packages do monorepo rodando _**no root to projeto**_:
 npm i
 ```
 
+inicie somente o postgres via container
+
+```bash
+docker compose up postgres
+```
+
 rode a task dev do monorepo, inicializa tanto backend quanto frontend
 
 ```bash
 npm run dev
 ```
+
+acesso local em http://localhost:3000
 
 testes (unit e uma integração usando db real via container):
 
